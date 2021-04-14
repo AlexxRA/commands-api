@@ -20,12 +20,6 @@ export class Command extends Document {
     required: true
   })
   platform: string;
-
-  @Prop({
-    type: String,
-    required: true
-  })
-  keyWords: string;
 }
 
 export const CommandSchema = SchemaFactory.createForClass(Command);
