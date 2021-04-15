@@ -1,5 +1,6 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import { Document } from 'mongoose';
+import { Document, Types } from 'mongoose';
+import { Platform } from 'src/platform/schemas/platform.schema';
 
 @Schema()
 export class Command extends Document {
@@ -16,10 +17,10 @@ export class Command extends Document {
   line: string;
 
   @Prop({
-    type: String,
-    required: true
+    type: Types.ObjectId,
+    ref: Platform.name
   })
-  platform: string;
+  platform: Platform;
 }
 
 export const CommandSchema = SchemaFactory.createForClass(Command);
