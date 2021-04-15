@@ -4,10 +4,12 @@ import { AppService } from './app.service';
 import { MongooseModule } from '@nestjs/mongoose';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { CommandModule } from './command/command.module'
+import { PlatformModule } from './platform/platform.module'
 
 @Module({
   imports: [
     CommandModule,
+    PlatformModule,
     MongooseModule.forRootAsync({
       imports: [ConfigModule.forRoot()],
       useFactory: async (configService: ConfigService) => {
