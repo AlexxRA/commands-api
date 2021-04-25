@@ -16,9 +16,10 @@ import { PlatformModule } from './platform/platform.module'
         const HOST = configService.get<string>('MONGO_HOST');
         const PORT = configService.get<string>('MONGO_PORT');
         const DB_NAME = configService.get<string>('DB_NAME');
+        const URI = configService.get<string>('URI') || "";
 
         return {
-          uri: `mongodb://${HOST}:${PORT}/${DB_NAME}`,
+          uri: URI ? URI : `mongodb://${HOST}:${PORT}/${DB_NAME}`,
           useFindAndModify: false,
         };
       },
